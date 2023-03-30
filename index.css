@@ -1,3 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
 body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: #ffcc80f5;
+}
+
+.wrapper {
+  background: white;
+  width: 416px;
+  padding: 20px;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #00000036;
+  box-shadow: 0 10px 20px 0px #0000001c;
+}
+.field {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  column-gap: 4px;
+}
+.front,
+.bottom {
+  width: 100%;
+  height: 100px;
+  margin: 2px;
+  border: 1px solid;
+  transition: 0.4s ease;
+  border-radius: 12px;
+}
+
+.front {
+  background: #e8e8e8;
+  border: none;
+}
+
+.bottom {
+  transform: perspective(600px) rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+}
+
+.bottom,
+.front {
+  position: absolute;
+  top: 0;
+  backface-visibility: hidden;
+  user-select: none;
+}
+.card {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 2px;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  animation-name: scale;
+  animation-duration: 0.4s;
+  width: 100%;
+}
+.card:active {
+  transform: scale(0.9);
+}
+
+.card:hover {
+  opacity: 0.7;
+}
+
+.active .bottom {
+  transform: perspective(600px) rotateY(0deg);
+}
+.active .front {
   background: black;
+  transform: perspective(600px) rotateY(180deg);
+}
+
+.opened .bottom {
+  transform: perspective(600px) rotateY(0deg);
+}
+.opened .front {
+  transform: perspective(600px) rotateY(180deg);
+}
+
+.wrapper {
+  border-radius: 12px;
+}
+
+.status {
+  border-bottom: 1px solid #00000021;
+  margin-bottom: 20px;
+}
+.status p {
+  margin-top: 0;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.info {
+  height: 416px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.accent_btn {
+  background: #0fa50f;
+  color: white;
+  border: 0;
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
 }
